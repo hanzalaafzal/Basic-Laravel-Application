@@ -1,61 +1,90 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is my first laravel application to learn laravel for fun just to learn it.
 
-## About Laravel
+Version : 8.x  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Installation and Configuration
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+There are two methods to host laravel application, either use Apache server (Xampp/Wampp) or using [Composer](https://getcomposer.org/) i.e. php dependency maker. I prefer you should use composer(makes work a lot easier) but I used Xampp to host my application.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+### 1. Using [Composer](https://getcomposer.org/)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Download and install Composer
+2. Start your MySql server and create a database named "laravel_basic"
+3. Download or clone the repository.
+4. Open a environment file named ".env" in your editor and find the following 
+ ```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_basic
+DB_USERNAME=root
+DB_PASSWORD=
+ ```
+ Change DB_HOST, DB_PORT , DB_USERNAME, DB_PASSWORD according to your sql server settings. 127.0.0.1 refers to localhost and 3306 is default port and save the file.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. Open Command Prompt (in application directory) and type
 
-## Laravel Sponsors
+```
+php artisan migrate
+```
+6. After migration completed. Type
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```
+php artisan serve
+```
+Your application will be hosted on 127.0.0.1:8000 i.e. default IP and PORT.
 
-### Premium Partners
+### 2. Using [Xampp Apache Server](https://www.apachefriends.org/index.html)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+1. Download and install xampp or wampp (Xampp in my case).
+2. Open file **httpd-vhosts.conf** in xampp installation directory **"C:\xampp\apache\conf\extra"**
 
-## Contributing
+ Add following lines at the end
+```text
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<VirtualHost *:80> 
+    DocumentRoot "C:/xampp/htdocs"
+    ServerName localhost
+</VirtualHost>
 
-## Code of Conduct
+<VirtualHost *:80> 
+    DocumentRoot "C:/xampp/htdocs/BasicLaravel/public"
+    ServerName basic-laravel.dev
+</VirtualHost>
+```
+These are used to create Virtual hosts for our application so we could host our application and visit it using a url **basic-laravel.dev**.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3. Open **hosts** file in **"C:\windows\System32\drivers\etc\"**
 
-## Security Vulnerabilities
+ Add following lines and save.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```text
+127.0.0.1 localhost
+127.0.0.1 basic-laravel.dev
+```
+ 4. Make a directory named **BasicLaravel** in **htdocs** folder of xampp (www in wampp but need to provide wampp directory paths in step 2 and step 3 configurations).
 
-## License
+ 5. Download or Clone the repository and put all files to **BasicLaravel** folder in htdocs.
+ 6. Start your MySql server and create a database named **"laravel_basic"**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ 7. Open a environment file named ".env" in your editor and find the following 
+ ```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_basic
+DB_USERNAME=root
+DB_PASSWORD=
+```
+Change DB_HOST, DB_PORT , DB_USERNAME, DB_PASSWORD according to your sql server settings. 127.0.0.1 refers to localhost and 3306 is default port and save the file.
+
+8. Run your apache server and open the url basic-laravel.dev in your browser to visit the application.
+
+==============================================================
+
+## Pages and methods
+
+1. Index Page URL : **basic-laravel.dev/index**
+<img src="storage/app/public/home-page.JPG" height="500">
