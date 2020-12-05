@@ -82,7 +82,7 @@ Change DB_HOST, DB_PORT , DB_USERNAME, DB_PASSWORD according to your sql server 
 
 8. Run your apache server and open the url basic-laravel.dev in your browser to visit the application.
 
-==============================================================
+=================================================================
 
 ## Pages and methods
 
@@ -95,19 +95,23 @@ Change DB_HOST, DB_PORT , DB_USERNAME, DB_PASSWORD according to your sql server 
 
 You can Add Details Here for dummy try and save.
 <hr>
-3. Register Page URL : **basic-laravel/signup** (Used Laravel Auth)
+
+3. Register Page URL :  **basic-laravel/signup** 
 <img src="storage/app/public/register.JPG" height="500">
 
 Register here with your details.
 <hr>
-4. Login Page URL : **basic-laravel/signin** (Laravel Auth)
+
+4. Login Page URL :  **basic-laravel/signin**
 <img src="storage/app/public/login.JPG" height="500">
 
 Login here with the credentials you used while registering. Upon successful login you will be redirect to **dashboard** page.
 <hr>
-5. Dashboard Page URL: **basic-laravel/dashboard**
+
+5. Dashboard Page URL :  **basic-laravel/dashboard**
 <img src="storage/app/public/dashboard.JPG" height="500">
 
 The contact queries entered through Contact page will be displayed here. Click on View button to see the message and Delete button to delete the query/contact details.
 <hr>
+
 #### This is just a dummy application to learn the flow of laravel.
